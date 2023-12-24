@@ -1,0 +1,1006 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Lobster&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+  --animate-snow-1: animate-snow-1 5s infinite ease-in-out;
+  --animate-snow-2: animate-snow-2 5s infinite ease-in-out;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(210, 80%, 54%);
+  --first-color-alt: hsl(210, 80%, 50%);
+  --title-color: hsl(210, 24%, 90%);
+  --text-color: hsl(210, 16%, 70%);
+  --white-color: #fff;
+  --body-color: hsl(210, 32%, 4%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --second-font: "Dancing Script", cursive;
+  --biggest-font-size: 2.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+  
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/* Responsive typography */
+@media screen and (min-width: 1024px) {
+  :root {
+    --biggest-font-size: 5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+  }
+}
+
+body {
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}  
+
+#snow{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+#snow i {
+  position: absolute;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 5px white;
+  animation: snowfall 5s linear infinite;
+  width: 10px;
+  height: 10px;
+}
+
+@keyframes snowfall {
+0% {
+    transform: translate(-10vw, -50vh);
+}
+
+100% {
+    transform: translate(10vw, 50vh);
+}
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+h1, h2, h3 {
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1024px;
+  margin-inline: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section {
+  padding-block: 5rem 1rem;
+}
+.section__title {
+  font-size: var(--h1-font-size);
+  font-family: var(--second-font);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.main {
+  overflow: hidden; /* For animations */
+}
+
+/* Snow animation */
+@keyframes animate-snow-1 {
+  0%, 100% {
+    transform: scale(.5);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+@keyframes animate-snow-2 {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(.5);
+  }
+}
+
+/*=============== HOME ===============*/
+.home {
+    position: relative;
+    background: linear-gradient(180deg,  /*FONDO CAMBIAR*/
+    hsl(210, 88%, 20%),
+    hsl(210, 70%, 58%));
+    height: 650px;
+    padding-top: 7rem;
+    overflow: hidden;
+}
+
+.home__title {
+    color: var(--white-color);
+    font-size: var(--biggest-font-size);
+    font-family: var(--second-font);
+    text-align: center;
+    margin-top: -1.8rem;
+}
+
+.home img {
+    position: absolute;
+}
+
+.home__mountain-1,
+.home__snow {
+    bottom: 0;
+}
+
+.home__village,
+.home__pine,
+.home__moon,
+.home__trineo {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.home__village {
+    width: 260px;
+    bottom: 1rem;
+}
+
+.home__pine {
+    width: 250px;
+    bottom: 4rem;
+}
+
+.home__mountain-2 {
+    bottom: 3rem;
+}
+
+.home__mountain-3 {
+    bottom: 6rem;
+}
+
+.home__moon {
+    width: 300px;
+    bottom: 8.5rem;
+}
+
+.home__trineo {
+    width: 250px;
+    bottom: 14.5rem;
+}
+
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar {
+  width: .6rem;
+  border-radius: .5rem;
+  background-color: hsl(210, 8%, 15%);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(210, 8%, 25%);
+  border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(210, 8%, 35%);
+}
+
+/*=============== SCROLL UP ===============*/
+.scrollup {
+  position: fixed;
+  right: 1rem;
+  bottom: -50%;
+  background-color: var(--white-color);
+  display: inline-flex;
+  padding: .45rem;
+  border-radius: .45rem;
+  font-size: 1rem;
+  color: var(--body-color);
+  z-index: var(--z-tooltip);
+  transition: bottom .3s, transform .3s;
+}
+
+.scrollup:hover {
+  transform: translateY(-.25rem);
+}
+
+/* Show Scroll Up */
+.show-scroll {
+  bottom: 3rem;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For medium devices */
+@media screen and (min-width: 576px) {
+  .home__village {
+    width: 360px;
+  }
+
+  .home__pine {
+    width: 330px;
+  }
+
+}
+
+@media only screen and (max-width:600px){
+  .cuadros{
+    grid-template-columns: repeat(5,10%);
+    grid-template-rows: repeat(5,10%);
+    width: 90%;
+    left: 0;
+    top: 0;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .nav__toggle,
+  .nav__close,
+  .nav__img-1,
+  .nav__img-2 {
+    display: none;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    column-gap: 4rem;
+  }
+
+  .home {
+    height: 800px;
+  }
+
+  .home__village {
+    width: 460px;
+  }
+
+  .home__pine {
+    width: 400px;
+    bottom: 7rem;
+  }
+
+  .home__moon {
+    width: 450px;
+    bottom: 12rem;
+  }
+
+  .home__trineo {
+    width: 350px;
+    bottom: 20rem;
+  }
+
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+  .section {
+    padding-block: 7rem 3rem;
+  }
+
+  .home__title {
+    font-size: 4rem;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+  }
+
+  .scrollup {
+    right: 3rem;
+  }
+}
+
+@media screen and (min-width: 1064px) {
+  .container {
+    margin-inline: auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .home {
+    height: 980px;
+  }
+
+  .home__title {
+    font-size: var(--biggest-font-size);
+  }
+
+  .home__mountain-1,
+  .home__mountain-2,
+  .home__mountain-3,
+  .home__snow {
+    width: 100%;
+  }
+
+  .home__village {
+    width: 750px;
+    bottom: 4rem;
+  }
+
+  .home__pine {
+    width: 720px;
+    bottom: 12.5rem;
+  }
+
+  .home__mountain-1,
+  .home__mountain-2 {
+    bottom: -0.5rem;
+  }
+
+  .home__moon {
+    width: 600px;
+    bottom: 14rem;
+  }
+
+  .home__trineo {
+    width: 500px;
+    bottom: 28rem;
+  }
+}
+
+/* For 2K+ resolutions */
+@media screen and (min-width: 1700px) {
+  .home {
+    max-width: 1280px;
+    height: 990px;
+    margin-inline: auto;
+  }
+}
+
+
+.back{
+  width: 100%;
+  height: 710px;
+  background: linear-gradient(180deg,
+  hsl(210, 70%, 58%),
+  hsl(210, 88%, 20%));
+
+}
+
+.container{
+  width: 600px;
+  height: 700px;
+  border: 5px solid black;
+  margin: 15px auto;
+  background-image: url('CalendarioB.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:contain;
+  z-index: 2;
+  margin-top: 0vh;
+}
+
+.cuadros{
+  display: grid;
+  grid-template-columns: repeat(5, 25%);
+  grid-template-rows: repeat(5, 23%);
+  grid-gap: 5px;
+  width:50% ;
+  height: 47%;
+  position:relative;
+  left: 2.8cm;
+  top: 4.6cm;
+  z-index: 5;
+}
+
+.cuadros div{
+  background-color: rgb(6, 112, 107);
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
+}
+
+@media only screen and (max-width:600px){
+  .cuadros{
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(5, 10%);
+  }
+
+}
+@media only screen and (max-width: 720px) and (max-height: 1600px) {
+
+  #Video_N3{
+    left: 2%;
+  }
+}
+
+
+.N1{
+  background-image: url('btn/Diapositiva1.PNG ');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+cursor: pointer;
+}
+
+.N2{
+  background-image: url('btn/Diapositiva2.PNG');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  cursor: pointer;
+  }
+
+.N3{
+   background-image: url('btn/Diapositiva3.PNG');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size:cover;
+   cursor: pointer;
+   }
+
+  .N4{
+     background-image: url('btn/Diapositiva4.PNG');
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size:cover;
+     cursor: pointer;
+    }
+    .N5{
+      background-image: url('btn/Diapositiva5.PNG');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:cover;
+      cursor: pointer;
+      }
+
+      .N6{
+          background-image: url('btn/Diapositiva6.PNG');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size:cover;
+          cursor: pointer;
+          }
+
+  .N7{
+  background-image: url('btn/Diapositiva7.PNG');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  cursor: pointer;
+  }
+
+  .N8{
+      background-image: url('btn/Diapositiva8.PNG');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:cover;
+      cursor: pointer;
+      }
+
+  .N9{
+      background-image: url('btn/Diapositiva9.PNG');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:cover;
+      cursor: pointer;
+      }
+
+      .N10{
+     background-image: url('btn/Diapositiva10.PNG');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:cover;
+      cursor: pointer;
+      }
+
+      .N11{
+          background-image: url('btn/Diapositiva11.PNG');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size:cover;
+          cursor: pointer;
+          }
+
+          .N12{
+              background-image: url('btn/Diapositiva12.PNG');
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size:cover;
+              cursor: pointer;
+              }
+
+       .N13{
+      background-image: url('btn/Diapositiva13.PNG');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:cover;
+      cursor: pointer;
+        }
+
+.N14{
+background-image: url('btn/Diapositiva14.PNG');
+background-position: center;
+background-repeat: no-repeat;
+background-size:cover;
+cursor: pointer;
+}          
+
+.N15{
+  background-image: url('btn/Diapositiva15.PNG');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  cursor: pointer;
+  }
+
+.N16{
+background-image: url('btn/Diapositiva16.PNG');
+background-position: center;
+background-repeat: no-repeat;
+background-size:cover;
+cursor: pointer;
+}    
+
+.N17{
+  background-image: url('btn/Diapositiva17.PNG');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  cursor: pointer;
+  }
+
+  .N18{
+      background-image: url('btn/Diapositiva18.PNG');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:cover;
+      cursor: pointer;
+      }
+
+.N19{
+background-image: url('btn/Diapositiva19.PNG');
+background-position: center;
+background-repeat: no-repeat;
+background-size:cover;
+cursor: pointer;
+}
+
+.N20{
+  background-image: url('btn/Diapositiva20.PNG');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  cursor: pointer;
+  }
+
+  .N21{
+      background-image: url('btn/Diapositiva21.PNG');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:cover;
+      cursor: pointer;
+      }
+
+.N22{
+background-image: url('btn/Diapositiva22.PNG');
+background-position: center;
+background-repeat: no-repeat;
+background-size:cover;
+cursor: pointer;
+}
+
+.N23{
+  background-image: url('btn/Diapositiva23.PNG');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  cursor: pointer;
+  }            
+
+  .N24{
+      background-image: url('btn/Diapositiva24.PNG');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:cover;
+      cursor: pointer;
+      }
+
+.N25{
+background-image: url('btn/Diapositiva25.PNG');
+background-position: center;
+background-repeat: no-repeat;
+background-size:cover;
+cursor: pointer;
+}
+
+.cuadros div.inhabilitado{
+  filter: grayscale(100%);
+  z-index: 1;
+  cursor: not-allowed;    
+}
+
+.cuadro{
+  background-image: url('P1/Modal_C.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  border-radius: 8px;
+  width: 45%;
+  height: 65%;
+}
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#Btncontinuar{
+  position: absolute;
+  left: 45%;
+  top: 70%;
+  display: flex;  
+  padding: 5px 30px;
+  background-color: #0e0d0d7a;
+  color: #f8f2f2;
+  border: 2px solid rgb(248, 10, 10);
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1001;
+  font-size: 115%; 
+  font-family: "Fredericka the Great",sans-serif;
+}
+
+/*#Btn{
+  display: flex;
+  padding: 5px 30px;
+  background-color: #0e0d0d7a;
+  color: #f8f2f2;
+  border: 2px solid rgb(248, 10, 10);
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}*/
+
+/*aqui*/
+
+.C_Inicio{
+  background-image: url('P1/Modal.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  border-radius: 8px;
+  width: 33%;
+  height: 97%;
+}
+.inicio{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  height: 100%;
+  background-image: url('P1/Bcuadro.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+
+}
+.inicio.visible{
+  display: flex;
+}
+
+#BtnInicio{
+  position: absolute;
+  left: 45%;
+  top: 80%;
+  display: flex;  
+  padding: 5px 30px;
+  background-color: #0e0d0d7a;
+  color: #f8f2f2;
+  border: 2px solid rgb(248, 10, 10);
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1001;
+  font-size: 115%; 
+  font-family: "Fredericka the Great",sans-serif;
+}
+
+.Txt_Inicio{
+  position: relative;
+  top: 3%;
+  color: rgb(5, 130, 161);
+  font-family: "Lobster",sans-serif;
+  text-align: center;
+  font-size: 135%;
+
+  overflow: hidden;
+  white-space: pre-line;
+  
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.Txt_N{
+  color: rgb(5, 130, 161);
+  font-family: "Lobster",sans-serif;
+  text-align: center;
+  font-size: 155%; 
+  position: relative;
+  top: 15%;
+  left: 1%;
+}
+.cuadro1_2{
+  background-image: url('P1/Modal.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  border-radius: 8px;
+  width: 30%;
+  height: 90%;
+}
+
+.Img_Cap{
+width: 55%;
+height: 45%;
+margin-top: 10%;
+transform: rotate(-5deg);
+border-radius: 5px;
+}
+
+#Btncontinuar1{
+  position: absolute;
+  left: 45%;
+  top: 84%;
+  display: flex;  
+  padding: 5px 30px;
+  background-color: #0e0d0d7a;
+  color: #f8f2f2;
+  border: 2px solid rgb(248, 10, 10);
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1001;
+  font-size: 115%; 
+  font-family: "Fredericka the Great",sans-serif;
+}
+
+#Btncontinuar2{
+  position: absolute;
+  left: 45%;
+  top: 83%;
+  display: flex;  
+  padding: 5px 30px;
+  background-color: #0e0d0d7a;
+  color: #f8f2f2;
+  border: 2px solid rgb(248, 10, 10);
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1001;
+  font-size: 115%; 
+  font-family: "Fredericka the Great",sans-serif;
+}
+
+#Audio_N9{
+  position: absolute;
+  top: 50%;
+  left: 40%;
+}
+
+.IN_21_1{
+width: 50%;
+height: auto;
+position: relative;
+
+}
+
+.IN_21_2{
+  width: 50%;
+  height: auto;
+  position: relative;
+  left: 25%;
+  top:-1%;
+}
+
+.IN_21_3{
+  width: 50%;
+  height: auto;
+  position: relative;
+  left: 50%;
+  top:-2%;
+}
+
+.IN_212_1{
+  width: 50%;
+  height: auto;
+  position: relative; 
+}
+
+.IN_212_2{
+  width: 40%;
+  height: auto;
+  position: relative;
+  left: -20%;
+  top: 23%;
+}
+
+.IN_212_3{
+  width: 50%;
+  height: auto;
+  position: relative;
+  left: 50%;
+  top: -21%; 
+}
+
+.IN_213_1{
+  width: 60%;
+  height: auto;
+  position: relative; 
+}
+
+.IN_213_2{
+  width: 60%;
+  height: auto;
+  position: relative;
+  left: 40%;
+  top:-1%;
+}
+
+.IN_214_1{
+  width: 105%;
+  position: relative;
+  top:10%;
+}
+
+.IN_214_2{
+width: 45%;
+}
+
+.overlay1{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('Back.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.cuadro1_3{
+  background-image: url('P1/C2.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  border-radius: 8px;
+  width: 50%;
+  height: 65%;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
+}
+
+.Txt_N1{
+  color: rgb(255, 255, 255);
+  font-family: "Lobster",sans-serif;
+  text-align: center;
+  font-size: 155%; 
+  position: relative;
+  top: 15%;
+  left: 1%;
+}
+
+.cuadro1_4{
+  background-image: url('P1/C3.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  border-radius: 8px;
+  width: 33%;
+  height: 97%;
+}
+
+.ContendorPdf{
+width: 88%;
+height: 82vh;
+overflow: auto;
+position: relative;
+left: 5%;
+top: 2%;
+}
+
+#pdfViewer{
+width: 100%;
+height: 100%;
+border: 0;
+transform-origin: 0 0;
+transform: scale(0.5);  
+}
+
+.overlay2{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('Back2.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}

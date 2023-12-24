@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
+body {
+  height: 100vh;
+  background: radial-gradient(ellipse at bottom, rgb(149, 228, 228) 0%, #2c3f8d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+h1 {
+  font-family: 'Josefin Sans', sans-serif;
+  color: white;
+  position: absolute;
+  font-size: 15vw;
+  mix-blend-mode: difference;
+  text-shadow: 0 0 2px white;
+}
+
+#snow{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    
+}
+
+#snow i {
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 0 5px white;
+    animation: snowfall 5s linear infinite;
+    width: 10px;
+    height: 10px;
+}
+
+.calendario{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%; /* Ajusta este valor según tus necesidades */
+    display: block;
+    margin-top: 200vh;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translate(-10vw, -50vh);
+    }
+
+    100% {
+        transform: translate(10vw, 50vh);
+    }
+}
+.cuadro{
+    background-color: white;
+    border-radius: 5px;
+    width: 15cm;
+    height: 10cm;
+}
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#Btn{
+    display: flex;
+    position: relative;
+    left:-1cm ;
+    transform: translateX(-50%);
+    padding: 5px 30px;
+    background-color: #0e0d0d7a;
+    color: #f8f2f2;
+    border: 2px solid rgb(248, 10, 10);
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.Tabla{
+    position: relative;
+    width: 90%;
+   height: 500px;
+    margin-top: 200vh;   
+}
+
+.imgT{
+    background-size: contain; /* Ajusta el tamaño de la imagen para cubrir completamente la celda */
+    background-position: center; /* Centra la imagen en la celda */
+    background-repeat: no-repeat;
+    background-image: url('Calendario.jpg'); /* Ruta de la imagen de fondo */
+    width: 400vw;
+    height: 100vh;
+}
